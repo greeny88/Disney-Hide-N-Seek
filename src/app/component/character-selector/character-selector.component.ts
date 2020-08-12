@@ -1,9 +1,16 @@
 import { Component } from '@angular/core';
 
 import template from './character-selector.html';
+import mickeyMouseImage from './../../../assets/images/mickey-mouse.png';
+import minnieMouseImage from './../../../assets/images/minnie-mouse.png';
+import donaldDuckImage from './../../../assets/images/donald-duck.png';
+import daisyDuckImage from './../../../assets/images/daisy-duck.png';
+import goofyImage from './../../../assets/images/goofy.png';
+import plutoImage from './../../../assets/images/pluto.png';
 
 interface Character {
     name: String,
+    image?: String,
     id: number
 }
 
@@ -17,23 +24,59 @@ export class CharacterSelectorComponent {
     private db: IDBDatabase;
 
     constructor() {
-        this.characters = [
-            'Mickey Mouse',
-            'Minnie Mouse',
-            'Donald Duck',
-            'Daisy Duck',
-            'Goofy',
-            'Pluto',
-            'Chip and Dale',
-            'Snow White',
-            'Belle',
-            'Cinderella',
-            'Elsa',
-            'Anna',
-            'Ariel'
-        ];
-        this.character_list = this.characters.sort().map((c) => {
-            return { name: c, id: undefined };
+        // this.characters = [
+        //     'Mickey Mouse',
+        //     'Minnie Mouse',
+        //     'Donald Duck',
+        //     'Daisy Duck',
+        //     'Goofy',
+        //     'Pluto',
+        //     'Chip and Dale',
+        //     'Snow White',
+        //     'Belle',
+        //     'Cinderella',
+        //     'Elsa',
+        //     'Anna',
+        //     'Ariel'
+        // ];
+        // this.character_list = this.characters.sort().map((c) => {
+        //     return { name: c, id: undefined };
+        // });
+
+        this.character_list = [
+            {
+                name: 'Mickey Mouse',
+                image: mickeyMouseImage
+            }, {
+                name: 'Minnie Mouse',
+                image: minnieMouseImage
+            }, {
+                name: 'Daisy Duck',
+                image: daisyDuckImage
+            }, {
+                name: 'Donald Duck',
+                image: donaldDuckImage
+            }, {
+                name: 'Goofy',
+                image: goofyImage
+            }, {
+                name: 'Pluto',
+                image: plutoImage
+            }
+        ].map(c => {
+            return {
+                name: c.name,
+                image: c.image,
+                id: undefined
+            }
+        }).sort((a,b) => {
+            if (a.name.toLowerCase() <= b.name.toLowerCase()) {
+                return -1;
+            }
+            if (a.name.toLowerCase() >= b.name.toLowerCase()) {
+                return 1;
+            }
+            return 0;
         });
     }
 

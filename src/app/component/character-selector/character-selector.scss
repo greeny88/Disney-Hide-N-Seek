@@ -24,6 +24,16 @@
     & > * {
         flex: 1 100%;
     }
+
+    img {
+        width: 150px;
+        filter: brightness(0);
+        display: block;
+    }
+
+    .mat-button-toggle-checked img {
+        filter: brightness(1);
+    }
 }
 
 // .mat-button-toggle {

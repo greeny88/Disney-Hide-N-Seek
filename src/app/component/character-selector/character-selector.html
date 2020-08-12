@@ -1,6 +1,9 @@
 <div id="mainDisplay">
     <div>You can select the name of the character below once you find them in one of the parks. Your selection will be saved in the browser so that it stays with you all trip long.</div>
     <div id="characterSelect">
-        <mat-button-toggle *ngFor="let character of character_list" [checked]="character.id" (click)="updateCharacter(character)">{{character.name}}</mat-button-toggle>
+        <mat-button-toggle *ngFor="let character of character_list" [checked]="character.id" (click)="updateCharacter(character)">
+            <div>{{character.name}}</div>
+            <img src="{{character.image}}" *ngIf="character.image">
+        </mat-button-toggle>
     </div>
 </div>
