@@ -26,7 +26,8 @@
     }
 
     img {
-        width: 150px;
+        max-width: 150px;
+        max-height: 250px;
         filter: brightness(0);
         display: block;
     }

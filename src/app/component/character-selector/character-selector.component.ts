@@ -7,6 +7,17 @@ import donaldDuckImage from './../../../assets/images/donald-duck.png';
 import daisyDuckImage from './../../../assets/images/daisy-duck.png';
 import goofyImage from './../../../assets/images/goofy.png';
 import plutoImage from './../../../assets/images/pluto.png';
+import aladdinImage from './../../../assets/images/aladdin.png';
+import aliceImage from './../../../assets/images/alice.png';
+import anaDrizImage from './../../../assets/images/anastasia-drizella.png';
+import beastImage from './../../../assets/images/beast.png';
+import belleImage from './../../../assets/images/belle.png';
+import chipDaleImage from './../../../assets/images/chip-dale.png';
+import cinderellaImage from './../../../assets/images/cinderella.png';
+import elenaImage from './../../../assets/images/elena.png';
+import gastonImage from './../../../assets/images/gaston.png';
+import jasmineImage from './../../../assets/images/jasmine.png';
+import meridaImage from './../../../assets/images/merida.png';
 
 interface Character {
     name: String,
@@ -62,6 +73,39 @@ export class CharacterSelectorComponent {
             }, {
                 name: 'Pluto',
                 image: plutoImage
+            }, {
+                name: 'Aladdin',
+                image: aladdinImage
+            }, {
+                name: 'Alice',
+                image: aliceImage
+            }, {
+                name: 'Anastasia and Drizella',
+                image: anaDrizImage
+            }, {
+                name: 'Beast',
+                image: beastImage
+            }, {
+                name: 'Belle',
+                image: belleImage
+            }, {
+                name: 'Chip and Dale',
+                image: chipDaleImage
+            }, {
+                name: 'Cinderella',
+                image: cinderellaImage
+            }, {
+                name: 'Elena',
+                image: elenaImage
+            }, {
+                name: 'Gaston',
+                image: gastonImage
+            }, {
+                name: 'Jasmine',
+                image: jasmineImage
+            }, {
+                name: 'Merida',
+                image: meridaImage
             }
         ].map(c => {
             return {
@@ -104,6 +148,7 @@ export class CharacterSelectorComponent {
 
     private getCharacterInfo() {
         let objectStore = this.db.transaction('character_db').objectStore('character_db');
+        let _this = this;
         objectStore.openCursor().onsuccess = (e: Event) => {
             console.log('Opening cursor.')
             let target: any = e.target;
@@ -113,7 +158,7 @@ export class CharacterSelectorComponent {
                 console.log('Found cursor.');
                 console.log(cursor.value.name);
                 console.log(cursor.value.id);
-                this.character_list.map(character => {
+                _this.character_list.map(character => {
                     if (character.name === cursor.value.name) {
                         character.id = cursor.value.id;
                     }
@@ -126,43 +171,55 @@ export class CharacterSelectorComponent {
         };
     }
 
-    updateCharacter(character) {
+    updateCharacter(character: Character) {
         console.log('updateCharacter');
         console.log(character);
 
+        let _this = this;
         let transaction = this.db.transaction(['character_db'], 'readwrite');
         let objectStore = transaction.objectStore('character_db');
 
         if (character.id) {
             let request = objectStore.delete(character.id);
 
-            request.onsuccess = () => console.log('Request was successful');
-            transaction.oncomplete = (() => {
-                this.character_list.map(c => {
+            request.onsuccess = () => console.log('Delete request was successful');
+            transaction.oncomplete = () => {
+                _this.character_list.map(c => {
                     if (c.name === character.name) {
                         character.id = undefined;
                     }
                     return character;
                 });
-                console.log(`Note ${character.id} deleted.`);
-            }).call(this);
-            transaction.onerror = (e) => console.log(`Transaction not opened due to error. ${e}`);
+                console.log(`Character ${character.name} deleted.`);
+            };
+            transaction.onerror = (e) => {
+                console.error('Transaction not opened due to error.');
+                console.error(e);
+            }
         } else {
             let newItem = { name: character.name };
 
             let request = objectStore.add(newItem);
+            let cid;
 
-            request.onsuccess = () => console.log('Request was successful');
-            transaction.oncomplete = (() => {
-                this.character_list.map(c => {
+            request.onsuccess = (e) => {
+                let target: any = e.target;
+                cid = target.result;
+                console.log('Add request was successful');
+            }
+            transaction.oncomplete = (e) => {
+                _this.character_list.map(c => {
                     if (c.name === character.name) {
-                        character.id = c.id;
+                        character.id = cid;
                     }
                     return character;
                 });
-                console.log('Transaction completed: database modification finished.');
-            }).call(this);
-            transaction.onerror = (e) => console.log(`Transaction not opened due to error. ${e}`);
+                console.log(`Character ${character.name} added.`);
+            };
+            transaction.onerror = (e) => {
+                console.error('Transaction not opened due to error.');
+                console.error(e);
+            }
         }
     }
 }
