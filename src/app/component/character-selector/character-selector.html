@@ -1,7 +1,18 @@
 <div id="mainDisplay">
-    <div>You can select the name of the character below once you find them in one of the parks. Your selection will be saved in the browser so that it stays with you all trip long.</div>
+    <h1>Disney Hide-N-Seek</h1>
+    <div>Select the character below once you find them in one of the parks. Your selection will be saved in the browser so that it stays with you all trip long.</div>
+    <!-- Add floating, toggle-able list of letters to jump to. -->
+    <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Jump to selected letter">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngFor="let letter of ['A','B','C','D','E','F','G','H','I','K','J','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']">
+            <span>{{letter}}</span>
+        </button>
+    </mat-menu> -->
     <div id="characterSelect">
         <mat-button-toggle *ngFor="let character of character_list" [checked]="character.id" (click)="updateCharacter(character)">
+            <!-- TODO: add zero-space anchors for each letter -->
             <div>{{character.name}}</div>
             <img src="{{character.image}}" *ngIf="character.image">
         </mat-button-toggle>

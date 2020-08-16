@@ -20,8 +20,8 @@ import jasmineImage from './../../../assets/images/jasmine.png';
 import meridaImage from './../../../assets/images/merida.png';
 
 interface Character {
-    name: String,
-    image?: String,
+    name: string,
+    image?: string,
     id: number
 }
 
@@ -30,30 +30,11 @@ interface Character {
     template
 })
 export class CharacterSelectorComponent {
-    characters: String[];
     character_list: Character[];
     private db: IDBDatabase;
+    // letters: string[];
 
     constructor() {
-        // this.characters = [
-        //     'Mickey Mouse',
-        //     'Minnie Mouse',
-        //     'Donald Duck',
-        //     'Daisy Duck',
-        //     'Goofy',
-        //     'Pluto',
-        //     'Chip and Dale',
-        //     'Snow White',
-        //     'Belle',
-        //     'Cinderella',
-        //     'Elsa',
-        //     'Anna',
-        //     'Ariel'
-        // ];
-        // this.character_list = this.characters.sort().map((c) => {
-        //     return { name: c, id: undefined };
-        // });
-
         this.character_list = [
             {
                 name: 'Mickey Mouse',
@@ -122,6 +103,7 @@ export class CharacterSelectorComponent {
             }
             return 0;
         });
+        // this.letters = ['A','B','C','D','E','F','G'];
     }
 
     

@@ -1,20 +1,5 @@
 #mainDisplay {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    // position: absolute;
-    // top: 0;
-    // bottom: 0;
-    // left: 0;
-    // right: 0;
-
-    div {
-        order: 1;
-    }
-
-    #characterSelect {
-        order: 2;
-    }
+    padding: 5px;
 }
 
 #characterSelect {
@@ -23,6 +8,8 @@
 
     & > * {
         flex: 1 100%;
+        padding: 5px;
+        margin-top: 5px;
     }
 
     img {
@@ -37,13 +24,8 @@
     }
 }
 
-// .mat-button-toggle {
-//     background-color: red;
-// }
-
 @media all and (min-width: 600px) {
     #characterSelect {
-        display: flex;
         flex-flow: row wrap;
     
         & > * {
@@ -51,18 +33,3 @@
         }
     }
 }
-
-// @media all and (max-width: 500px) {
-//     #mainDisplay {
-//         flex-direction: column;
-//     }
-// }
-
-// footer {
-//     text-align: center;
-//     font-size: 0.75rem;
-//     // background-color: #f5f5f5;
-//     padding-top: 1rem;
-//     padding-bottom: 0.5rem;
-//     border-top: 1px solid rgba(0, 0, 0, .42);
-// }
