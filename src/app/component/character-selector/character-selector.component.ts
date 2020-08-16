@@ -1,29 +1,7 @@
 import { Component } from '@angular/core';
+import { Character, Characters } from './characters';
 
 import template from './character-selector.html';
-import mickeyMouseImage from './../../../assets/images/mickey-mouse.png';
-import minnieMouseImage from './../../../assets/images/minnie-mouse.png';
-import donaldDuckImage from './../../../assets/images/donald-duck.png';
-import daisyDuckImage from './../../../assets/images/daisy-duck.png';
-import goofyImage from './../../../assets/images/goofy.png';
-import plutoImage from './../../../assets/images/pluto.png';
-import aladdinImage from './../../../assets/images/aladdin.png';
-import aliceImage from './../../../assets/images/alice.png';
-import anaDrizImage from './../../../assets/images/anastasia-drizella.png';
-import beastImage from './../../../assets/images/beast.png';
-import belleImage from './../../../assets/images/belle.png';
-import chipDaleImage from './../../../assets/images/chip-dale.png';
-import cinderellaImage from './../../../assets/images/cinderella.png';
-import elenaImage from './../../../assets/images/elena.png';
-import gastonImage from './../../../assets/images/gaston.png';
-import jasmineImage from './../../../assets/images/jasmine.png';
-import meridaImage from './../../../assets/images/merida.png';
-
-interface Character {
-    name: string,
-    image?: string,
-    id: number
-}
 
 @Component({
     selector: 'character-selector',
@@ -32,63 +10,9 @@ interface Character {
 export class CharacterSelectorComponent {
     character_list: Character[];
     private db: IDBDatabase;
-    // letters: string[];
 
     constructor() {
-        this.character_list = [
-            {
-                name: 'Mickey Mouse',
-                image: mickeyMouseImage
-            }, {
-                name: 'Minnie Mouse',
-                image: minnieMouseImage
-            }, {
-                name: 'Daisy Duck',
-                image: daisyDuckImage
-            }, {
-                name: 'Donald Duck',
-                image: donaldDuckImage
-            }, {
-                name: 'Goofy',
-                image: goofyImage
-            }, {
-                name: 'Pluto',
-                image: plutoImage
-            }, {
-                name: 'Aladdin',
-                image: aladdinImage
-            }, {
-                name: 'Alice',
-                image: aliceImage
-            }, {
-                name: 'Anastasia and Drizella',
-                image: anaDrizImage
-            }, {
-                name: 'Beast',
-                image: beastImage
-            }, {
-                name: 'Belle',
-                image: belleImage
-            }, {
-                name: 'Chip and Dale',
-                image: chipDaleImage
-            }, {
-                name: 'Cinderella',
-                image: cinderellaImage
-            }, {
-                name: 'Elena',
-                image: elenaImage
-            }, {
-                name: 'Gaston',
-                image: gastonImage
-            }, {
-                name: 'Jasmine',
-                image: jasmineImage
-            }, {
-                name: 'Merida',
-                image: meridaImage
-            }
-        ].map(c => {
+        this.character_list = Characters.map(c => {
             return {
                 name: c.name,
                 image: c.image,
@@ -103,11 +27,8 @@ export class CharacterSelectorComponent {
             }
             return 0;
         });
-        // this.letters = ['A','B','C','D','E','F','G'];
     }
 
-    
-    // https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage#Storing_complex_data_%E2%80%94_IndexedDB
     ngOnInit() {
         let request: IDBOpenDBRequest = window.indexedDB.open('character_db', 1);
 
