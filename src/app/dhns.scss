@@ -13,7 +13,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $dhns-app-primary: mat-palette($mat-red, 900);
-$dhns-app-accent:  mat-palette($mat-yellow, 400);
+$dhns-app-accent:  mat-palette($mat-yellow);
 
 // The warn palette is optional (defaults to red).
 $dhns-app-warn:    mat-palette($mat-red);
@@ -41,3 +41,7 @@ $dhns-app-theme: mat-light-theme($dhns-app-primary, $dhns-app-accent, $dhns-app-
 // that you are using.
 @include angular-material-theme($dhns-app-theme);
 @include mix-app-theme($dhns-app-theme);
+
+footer {
+  font-size: smaller;
+}

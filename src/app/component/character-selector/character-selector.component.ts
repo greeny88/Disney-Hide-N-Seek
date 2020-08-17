@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Character, Characters } from './characters';
 
 import template from './character-selector.html';
+import confirmDelete from './confirm-delete.html';
 
 @Component({
     selector: 'character-selector',
@@ -11,14 +13,14 @@ export class CharacterSelectorComponent {
     character_list: Character[];
     private db: IDBDatabase;
 
-    constructor() {
+    constructor(public dialog: MatDialog) {
         this.character_list = Characters.map(c => {
             return {
                 name: c.name,
                 image: c.image,
                 id: undefined
             }
-        }).sort((a,b) => {
+        }).sort((a, b) => {
             if (a.name.toLowerCase() <= b.name.toLowerCase()) {
                 return -1;
             }
@@ -30,11 +32,14 @@ export class CharacterSelectorComponent {
     }
 
     ngOnInit() {
+        this.createDatabase();
+    }
+
+    private createDatabase() {
         let request: IDBOpenDBRequest = window.indexedDB.open('character_db', 1);
 
-        request.onerror = () => console.log('Error opening db.');
+        request.onerror = (e) => console.log(e);
         request.onsuccess = () => {
-            console.log('Successfully opened db.');
             this.db = request.result;
             this.getCharacterInfo();
         };
@@ -42,10 +47,20 @@ export class CharacterSelectorComponent {
             let target: any = e.target;
             let db: IDBDatabase = target.result;
             let objectStore = db.createObjectStore('character_db', { keyPath: 'id', autoIncrement: true });
-
             objectStore.createIndex('name', 'name', { unique: true });
+        };
+    }
 
-            console.log('Database setup complete');
+    private clearDatabase() {
+        let _this = this;
+        let objectStore = this.db.transaction(['character_db'], 'readwrite').objectStore('character_db');
+
+        let request = objectStore.clear();
+        request.onsuccess = () => {
+            _this.character_list.map(character => {
+                character.id = undefined;
+                return character;
+            })
         };
     }
 
@@ -53,14 +68,10 @@ export class CharacterSelectorComponent {
         let objectStore = this.db.transaction('character_db').objectStore('character_db');
         let _this = this;
         objectStore.openCursor().onsuccess = (e: Event) => {
-            console.log('Opening cursor.')
             let target: any = e.target;
             let cursor: IDBCursorWithValue = target.result;
 
             if (cursor) {
-                console.log('Found cursor.');
-                console.log(cursor.value.name);
-                console.log(cursor.value.id);
                 _this.character_list.map(character => {
                     if (character.name === cursor.value.name) {
                         character.id = cursor.value.id;
@@ -68,16 +79,21 @@ export class CharacterSelectorComponent {
                     return character;
                 });
                 cursor.continue();
-            } else {
-                console.log('All characters set.');
             }
         };
     }
 
-    updateCharacter(character: Character) {
-        console.log('updateCharacter');
-        console.log(character);
+    openDialog(): void {
+        const dialogRef = this.dialog.open(ConfirmDeleteDialog);
 
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.clearDatabase();
+            }
+        });
+    }
+
+    updateCharacter(character: Character) {
         let _this = this;
         let transaction = this.db.transaction(['character_db'], 'readwrite');
         let objectStore = transaction.objectStore('character_db');
@@ -93,22 +109,18 @@ export class CharacterSelectorComponent {
                     }
                     return character;
                 });
-                console.log(`Character ${character.name} deleted.`);
             };
             transaction.onerror = (e) => {
-                console.error('Transaction not opened due to error.');
                 console.error(e);
             }
         } else {
             let newItem = { name: character.name };
-
             let request = objectStore.add(newItem);
-            let cid;
+            let cid: number;
 
             request.onsuccess = (e) => {
                 let target: any = e.target;
                 cid = target.result;
-                console.log('Add request was successful');
             }
             transaction.oncomplete = (e) => {
                 _this.character_list.map(c => {
@@ -117,12 +129,23 @@ export class CharacterSelectorComponent {
                     }
                     return character;
                 });
-                console.log(`Character ${character.name} added.`);
             };
             transaction.onerror = (e) => {
-                console.error('Transaction not opened due to error.');
                 console.error(e);
             }
         }
+    }
+}
+
+@Component({
+    selector: 'confirm-delete',
+    template: confirmDelete,
+})
+export class ConfirmDeleteDialog {
+
+    constructor(public dialogRef: MatDialogRef<ConfirmDeleteDialog>) { }
+
+    onNoClick(): void {
+        this.dialogRef.close();
     }
 }
