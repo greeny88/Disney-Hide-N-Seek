@@ -12,6 +12,7 @@ import confirmDelete from './confirm-delete.html';
 export class CharacterSelectorComponent {
     character_list: Character[];
     private db: IDBDatabase;
+    letters: string[];
 
     constructor(public dialog: MatDialog) {
         this.character_list = Characters.map(c => {
@@ -29,6 +30,7 @@ export class CharacterSelectorComponent {
             }
             return 0;
         });
+        this.letters = Characters.map(c => c.name[0]).filter((v, i, a) => a.indexOf(v) === i).sort();
     }
 
     ngOnInit() {

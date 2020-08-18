@@ -4,7 +4,8 @@
         <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-        <a href="#{{letter}}" mat-button *ngFor="let letter of ['A','B','C','D','E','F','G','H','I','K','J','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']">{{letter}}</a>
+        <span>Jump To:</span>
+        <a href="#{{letter}}" mat-button *ngFor="let letter of letters">{{letter}}</a>
         <button mat-flat-button color="warn" (click)="openDialog()">Reset Selections</button>
     </mat-menu>
     <div>Select the character below once you find them in one of the parks. Your selection will be saved in the browser so that it stays with you all trip long.</div>

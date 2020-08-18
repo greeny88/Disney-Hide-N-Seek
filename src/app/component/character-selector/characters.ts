@@ -68,6 +68,45 @@ import trooperImage from './../../../assets/images/stormtrooper.png';
 import tianaImage from './../../../assets/images/tiana.png';
 import tinkerbellImage from './../../../assets/images/tinkerbell.png';
 import woodyImage from './../../../assets/images/woody.png';
+import cruellaImage from './../../../assets/images/cruella.png';
+import genieImage from './../../../assets/images/genie.png';
+import jafarImage from './../../../assets/images/jafar.png';
+import balooImage from './../../../assets/images/baloo.png';
+import mowgliImage from './../../../assets/images/mowgli.png';
+import boImage from './../../../assets/images/bo-peep.png';
+import dumboImage from './../../../assets/images/dumbo.png';
+import fairyImage from './../../../assets/images/fairy-godmother.png';
+import poppinsImage from './../../../assets/images/mary-poppins.png';
+import pocahontasImage from './../../../assets/images/pocahontas.png';
+import johnSmithImage from './../../../assets/images/john-smith.png';
+import booImage from './../../../assets/images/boo.gif';
+import mikeImage from './../../../assets/images/mike.gif';
+import sullyImage from './../../../assets/images/sully.gif';
+import hatterImage from './../../../assets/images/mad-hatter.png';
+import rabbitImage from './../../../assets/images/white-rabbit.png';
+import winnieImage from './../../../assets/images/winnie-the-pooh.png';
+import tiggerImage from './../../../assets/images/tigger.png';
+import pigletImage from './../../../assets/images/piglet.png';
+import eeyoreImage from './../../../assets/images/eeyore.png';
+import kangaImage from './../../../assets/images/kanga-roo.png';
+import scroogeImage from './../../../assets/images/scrooge.png';
+import louieImage from './../../../assets/images/louie.png';
+import deweyImage from './../../../assets/images/dewey.png';
+import hueyImage from './../../../assets/images/huey.png';
+import webbyImage from './../../../assets/images/webby.png';
+import launchpadImage from './../../../assets/images/launchpad.png';
+import kuzcoImage from './../../../assets/images/kuzco.gif';
+import pachaImage from './../../../assets/images/pacha.gif';
+import yzmaImage from './../../../assets/images/yzma.gif';
+import ursulaImage from './../../../assets/images/ursula.png';
+import tritonImage from './../../../assets/images/triton.png';
+import incredImage from './../../../assets/images/mr-incredible.png';
+import elasticImage from './../../../assets/images/elastigirl.png';
+import violetImage from './../../../assets/images/violet.png';
+import dashImage from './../../../assets/images/dash.png';
+import frozoneImage from './../../../assets/images/frozone.png';
+import mickeySorImage from './../../../assets/images/mickey-sorcerer.png';
+import merlinImage from './../../../assets/images/merlin.gif';
 
 export interface Character {
     name: string,
@@ -286,6 +325,123 @@ const Characters: Character[] = [
     }, {
         name: 'Woody',
         image: woodyImage
+    }, {
+        name: 'Cruella DeVil',
+        image: cruellaImage
+    }, {
+        name: 'Genie',
+        image: genieImage
+    }, {
+        name: 'Jafar',
+        image: jafarImage
+    }, {
+        name: 'Baloo',
+        image: balooImage
+    }, {
+        name: 'Mowgli',
+        image: mowgliImage
+    }, {
+        name: 'Bo Peep',
+        image: boImage
+    }, {
+        name: 'Dumbo',
+        image: dumboImage
+    }, {
+        name: 'Fairy Godmother',
+        image: fairyImage
+    }, {
+        name: 'Mary Poppins',
+        image: poppinsImage
+    }, {
+        name: 'Pocahontas',
+        image: pocahontasImage
+    }, {
+        name: 'John Smith',
+        image: johnSmithImage
+    }, {
+        name: 'Boo',
+        image: booImage
+    }, {
+        name: 'Mike',
+        image: mikeImage
+    }, {
+        name: 'Sully',
+        image: sullyImage
+    }, {
+        name: 'Mad Hatter',
+        image: hatterImage
+    }, {
+        name: 'White Rabbit',
+        image: rabbitImage
+    }, {
+        name: 'Winnie the Pooh',
+        image: winnieImage
+    }, {
+        name: 'Tigger',
+        image: tiggerImage
+    }, {
+        name: 'Piglet',
+        image: pigletImage
+    }, {
+        name: 'Eeyore',
+        image: eeyoreImage
+    }, {
+        name: 'Kanga and Roo',
+        image: kangaImage
+    }, {
+        name: 'Scrooge McDuck',
+        image: scroogeImage
+    }, {
+        name: 'Louie',
+        image: louieImage
+    }, {
+        name: 'Dewey',
+        image: deweyImage
+    }, {
+        name: 'Huey',
+        image: hueyImage
+    }, {
+        name: 'Webby',
+        image: webbyImage
+    }, {
+        name: 'Launchpad McQuack',
+        image: launchpadImage
+    }, {
+        name: 'Kuzco',
+        image: kuzcoImage
+    }, {
+        name: 'Pacha',
+        image: pachaImage
+    }, {
+        name: 'Yzma',
+        image: yzmaImage
+    }, {
+        name: 'Ursula',
+        image: ursulaImage
+    }, {
+        name: 'Triton',
+        image: tritonImage
+    }, {
+        name: 'Mr. Incredible',
+        image: incredImage
+    }, {
+        name: 'ElastiGirl',
+        image: elasticImage
+    }, {
+        name: 'Violet',
+        image: violetImage
+    }, {
+        name: 'Dash',
+        image: dashImage
+    }, {
+        name: 'Frozone',
+        image: frozoneImage
+    }, {
+        name: 'Socerer Mickey',
+        image: mickeySorImage
+    }, {
+        name: 'Merlin',
+        image: merlinImage
     }
 ];
 
