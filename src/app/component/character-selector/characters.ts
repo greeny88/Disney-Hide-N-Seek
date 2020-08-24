@@ -83,7 +83,7 @@ import booImage from './../../../assets/images/boo.gif';
 import mikeImage from './../../../assets/images/mike.gif';
 import sullyImage from './../../../assets/images/sully.gif';
 import hatterImage from './../../../assets/images/mad-hatter.png';
-import rabbitImage from './../../../assets/images/white-rabbit.png';
+import whiteRabbitImage from './../../../assets/images/white-rabbit.png';
 import winnieImage from './../../../assets/images/winnie-the-pooh.png';
 import tiggerImage from './../../../assets/images/tigger.png';
 import pigletImage from './../../../assets/images/piglet.png';
@@ -107,6 +107,39 @@ import dashImage from './../../../assets/images/dash.png';
 import frozoneImage from './../../../assets/images/frozone.png';
 import mickeySorImage from './../../../assets/images/mickey-sorcerer.png';
 import merlinImage from './../../../assets/images/merlin.gif';
+import doryImage from './../../../assets/images/dory.gif';
+import nemoImage from './../../../assets/images/nemo.gif';
+import marlinImage from './../../../assets/images/marlin.gif';
+import ednaImage from './../../../assets/images/edna.png';
+import rafikiImage from './../../../assets/images/rafiki.png';
+import zazuImage from './../../../assets/images/zazu.png';
+import simbaYImage from './../../../assets/images/simba-young.png';
+import simbaOImage from './../../../assets/images/simba-old.gif';
+import timonImage from './../../../assets/images/timon.png';
+import quasiImage from './../../../assets/images/quasimodo.png';
+import sadImage from './../../../assets/images/sadness.png';
+import disgustImage from './../../../assets/images/disgust.gif';
+import fearImage from './../../../assets/images/fear.gif';
+import angerImage from './../../../assets/images/anger.png';
+import ralphImage from './../../../assets/images/ralph.png';
+import vanelImage from './../../../assets/images/vanellope.png';
+import felixImage from './../../../assets/images/fix-it-felix.png';
+import tremaineImage from './../../../assets/images/lady-tremaine.png';
+import claraImage from './../../../assets/images/clarabelle.png';
+import peteImage from './../../../assets/images/pete.gif';
+import maxImage from './../../../assets/images/max.gif';
+import rabbitImage from './../../../assets/images/rabbit.png';
+import mcstuffinsImage from './../../../assets/images/mcstuffins.png';
+import russellImage from './../../../assets/images/russell.gif';
+import carlImage from './../../../assets/images/carl.gif';
+import nancyImage from './../../../assets/images/fancy-nancy.png';
+import vapImage from './../../../assets/images/vampirina.png';
+import reyImage from './../../../assets/images/rey.png';
+import bb8Image from './../../../assets/images/bb8.png';
+import kyloImage from './../../../assets/images/kyloren.png';
+import dduckImage from './../../../assets/images/darkwing-duck.png';
+import pumbaaImage from './../../../assets/images/pumbaa.png';
+import gothelImage from './../../../assets/images/mother-gothel.png';
 
 export interface Character {
     name: string,
@@ -372,7 +405,7 @@ const Characters: Character[] = [
         image: hatterImage
     }, {
         name: 'White Rabbit',
-        image: rabbitImage
+        image: whiteRabbitImage
     }, {
         name: 'Winnie the Pooh',
         image: winnieImage
@@ -442,6 +475,105 @@ const Characters: Character[] = [
     }, {
         name: 'Merlin',
         image: merlinImage
+    }, {
+        name: 'Dory',
+        image: doryImage
+    }, {
+        name: 'Nemo',
+        image: nemoImage
+    }, {
+        name: 'Marlin',
+        image: marlinImage
+    }, {
+        name: 'Edna Mode',
+        image: ednaImage
+    }, {
+        name: 'Rafiki',
+        image: rafikiImage
+    }, {
+        name: 'Zazu',
+        image: zazuImage
+    }, {
+        name: 'Simba (Young)',
+        image: simbaYImage
+    }, {
+        name: 'Simba (Adult)',
+        image: simbaOImage
+    }, {
+        name: 'Timon',
+        image: timonImage
+    }, {
+        name: 'Quasimodo',
+        image: quasiImage
+    }, {
+        name: 'Sadness',
+        image: sadImage
+    }, {
+        name: 'Disgust',
+        image: disgustImage
+    }, {
+        name: 'Fear',
+        image: fearImage
+    }, {
+        name: 'Anger',
+        image: angerImage
+    }, {
+        name: 'Wreck-it Ralph',
+        image: ralphImage
+    }, {
+        name: 'Vanellope',
+        image: vanelImage
+    }, {
+        name: 'Fix-it Felix',
+        image: felixImage
+    }, {
+        name: 'Lady Tremaine',
+        image: tremaineImage
+    }, {
+        name: 'Clarabelle',
+        image: claraImage
+    }, {
+        name: 'Pete',
+        image: peteImage
+    }, {
+        name: 'Max',
+        image: maxImage
+    }, {
+        name: 'Carl',
+        image: carlImage
+    }, {
+        name: 'Russell',
+        image: russellImage
+    }, {
+        name: 'Doc McStuffins',
+        image: mcstuffinsImage
+    }, {
+        name: 'Fancy Nancy',
+        image: nancyImage
+    }, {
+        name: 'Vampirina',
+        image: vapImage
+    }, {
+        name: 'Rey',
+        image: reyImage
+    }, {
+        name: 'BB-8',
+        image: bb8Image
+    }, {
+        name: 'Kylo Ren',
+        image: kyloImage
+    }, {
+        name: 'Darkwing Duck',
+        image: dduckImage
+    }, {
+        name: 'Pumbaa',
+        image: pumbaaImage
+    }, {
+        name: 'Rabbit',
+        image: rabbitImage
+    }, {
+        name: 'Mother Gothel',
+        image: gothelImage
     }
 ];
 

@@ -8,6 +8,15 @@
     }
 }
 
+h1 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.mat-menu-content {
+    padding-left: 4px;
+}
+
 #characterSelect {
     display: flex;
     flex-direction: column;

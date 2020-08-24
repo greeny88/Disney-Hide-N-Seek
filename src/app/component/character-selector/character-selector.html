@@ -1,11 +1,11 @@
 <div id="mainDisplay">
-    <h1>Disney Hide-N-Seek </h1>
+    <h1><a href="/">Disney Hide-N-Seek</a></h1>
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Jump to selected letter">
-        <mat-icon>more_vert</mat-icon>
+        <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
         <span>Jump To:</span>
-        <a href="#{{letter}}" mat-button *ngFor="let letter of letters">{{letter}}</a>
+        <a href="#{{letter}}" mat-stroked-button *ngFor="let letter of letters">{{letter}}</a>
         <button mat-flat-button color="warn" (click)="openDialog()">Reset Selections</button>
     </mat-menu>
     <div>Select the character below once you find them in one of the parks. Your selection will be saved in the browser so that it stays with you all trip long.</div>
