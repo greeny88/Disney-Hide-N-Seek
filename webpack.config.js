@@ -26,7 +26,7 @@ const htmlPlugin = new HtmlWebpackPlugin({
 	template: paths.index
 });
 const cleanDistPlugin = new CleanWebpackPlugin({
-    cleanOnceBeforeBuildPatterns: ['!.git']
+    cleanOnceBeforeBuildPatterns: ['**/*', '!.git', '!.git/**/*']
 });
 const definePlugin = new webpack.DefinePlugin({
 	VERSION: JSON.stringify(packageInfo.version)
@@ -112,7 +112,7 @@ const fonts = {
 
 let config = {
 	entry: {
-		ffb: paths.entry
+		dhns: paths.entry
 	},
 	module: {
 		rules: [
