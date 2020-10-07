@@ -44,4 +44,17 @@
             Made with <3 for Mae and Ike. All images from <a href="https://www.disneyclips.com/" target="_blank">https://www.disneyclips.com/</a>.
         </footer>
     </body>
+    <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js').then(registration => {
+                        console.log('SW registered: ', registration);
+                    }).catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+                });
+            }
+    </script>
 </html>

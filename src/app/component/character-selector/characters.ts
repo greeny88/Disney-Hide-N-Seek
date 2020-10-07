@@ -140,6 +140,11 @@ import kyloImage from './../../../assets/images/kyloren.png';
 import dduckImage from './../../../assets/images/darkwing-duck.png';
 import pumbaaImage from './../../../assets/images/pumbaa.png';
 import gothelImage from './../../../assets/images/mother-gothel.png';
+import captjackImage from './../../../assets/images/captain-jack.gif';
+import claytonImage from './../../../assets/images/clayton.png';
+import janeImage from './../../../assets/images/jane.png';
+import tarzanImage from './../../../assets/images/tarzan.png';
+import qheartsImage from './../../../assets/images/queen-of-hearts.png';
 
 export interface Character {
     name: string,
@@ -574,6 +579,21 @@ const Characters: Character[] = [
     }, {
         name: 'Mother Gothel',
         image: gothelImage
+    }, {
+        name: 'Captain Jack',
+        image: captjackImage
+    }, {
+        name: 'Clayton',
+        image: claytonImage
+    }, {
+        name: 'Jane',
+        image: janeImage
+    }, {
+        name: 'Tarzan',
+        image: tarzanImage
+    }, {
+        name: 'Queen of Hearts',
+        image: qheartsImage
     }
 ];
 

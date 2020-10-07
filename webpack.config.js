@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const packageInfo = require('./package.json');
 
@@ -27,6 +28,11 @@ const htmlPlugin = new HtmlWebpackPlugin({
 });
 const cleanDistPlugin = new CleanWebpackPlugin({
     cleanOnceBeforeBuildPatterns: ['**/*', '!.git', '!.git/**/*']
+});
+const workboxPlugin = new WorkboxPlugin.GenerateSW({
+	clientsClaim: true,
+	maximumFileSizeToCacheInBytes: 6 * 1024 * 1024, // 6MB
+	skipWaiting: true
 });
 const definePlugin = new webpack.DefinePlugin({
 	VERSION: JSON.stringify(packageInfo.version)
@@ -145,7 +151,8 @@ let config = {
 		cleanDistPlugin,
 		htmlPlugin,
 		extractSassPlugin,
-		definePlugin
+		definePlugin,
+		workboxPlugin
 	],
 	resolve: {
 		extensions: ['.ts', '.js', '*']
