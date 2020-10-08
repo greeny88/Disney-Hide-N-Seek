@@ -32,7 +32,8 @@ const cleanDistPlugin = new CleanWebpackPlugin({
 const workboxPlugin = new WorkboxPlugin.GenerateSW({
 	clientsClaim: true,
 	maximumFileSizeToCacheInBytes: 6 * 1024 * 1024, // 6MB
-	skipWaiting: true
+	skipWaiting: true,
+	// swDest: 'assets/js/service-worker.js'
 });
 const definePlugin = new webpack.DefinePlugin({
 	VERSION: JSON.stringify(packageInfo.version)
