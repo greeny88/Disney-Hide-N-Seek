@@ -41,7 +41,7 @@ import jessieImage from './../../../assets/images/jessie.png';
 import jiminyImage from './../../../assets/images/jiminy.png';
 import joyImage from './../../../assets/images/joy.png';
 import liloImage from './../../../assets/images/lilo.gif';
-import malImage from './../../../assets/images/maleficent.png';
+import malImage from './../../../assets/images/maleficent.gif';
 import mauiImage from './../../../assets/images/maui.png';
 import megImage from './../../../assets/images/megara.png';
 import moanaImage from './../../../assets/images/moana.png';
@@ -145,6 +145,8 @@ import claytonImage from './../../../assets/images/clayton.png';
 import janeImage from './../../../assets/images/jane.png';
 import tarzanImage from './../../../assets/images/tarzan.png';
 import qheartsImage from './../../../assets/images/queen-of-hearts.png';
+import oogieImage from './../../../assets/images/oogie.png';
+import joseImage from './../../../assets/images/jose-carioca.png';
 
 export interface Character {
     name: string,
@@ -594,6 +596,12 @@ const Characters: Character[] = [
     }, {
         name: 'Queen of Hearts',
         image: qheartsImage
+    }, {
+        name: 'Oogie Boogie',
+        image: oogieImage
+    }, {
+        name: 'Jose Carioca',
+        image: joseImage
     }
 ];
 
