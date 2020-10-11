@@ -146,7 +146,7 @@ import janeImage from './../../../assets/images/jane.png';
 import tarzanImage from './../../../assets/images/tarzan.png';
 import qheartsImage from './../../../assets/images/queen-of-hearts.png';
 import oogieImage from './../../../assets/images/oogie.png';
-import joseImage from './../../../assets/images/jose-carioca.png';
+import joseImage from './../../../assets/images/jose-carioca.gif';
 
 export interface Character {
     name: string,
@@ -600,7 +600,7 @@ const Characters: Character[] = [
         name: 'Oogie Boogie',
         image: oogieImage
     }, {
-        name: 'Jose Carioca',
+        name: 'José Carioca',
         image: joseImage
     }
 ];
